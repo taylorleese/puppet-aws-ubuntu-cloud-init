@@ -1,0 +1,8 @@
+Example cloud config files that can be used to launch Ubuntu puppet/puppetmaster nodes via AWS.
+
+Example commands to launch x64 Ubuntu Maverick instances:
+    ec2-run-instances ami-ca1f4f8f -k ec2-keypair -t t1.micro --region us-west-1 -f puppet-master.txt
+    ec2-run-instances ami-ca1f4f8f -k ec2-keypair -t t1.micro --region us-west-1 -f puppet-client.txt
+
+Copyright (C) 2010 Taylor Leese (tleese22@gmail.com)
+

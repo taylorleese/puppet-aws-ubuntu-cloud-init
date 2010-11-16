@@ -1,0 +1,18 @@
+#cloud-config
+
+# replace 0.0.0.0 with the IP address of your puppetmaster (perhaps an elastic IP)
+# replace your.node.com with the logical hostname that puppet should use to identify
+#     this node to the puppetmaster
+
+packages:
+- ruby
+- ruby-dev
+- rubygems
+- puppet
+- vim-puppet
+- puppet-el
+
+runcmd:
+- sed -i 's/127.0.0.1 localhost/127.0.0.1 localhost\n0.0.0.0 puppet/' /etc/hosts
+- sed -i 's/\[main\]/\[main\]\npluginsync=true\ncertname=your.node.com/' /etc/puppet/puppet.conf
+

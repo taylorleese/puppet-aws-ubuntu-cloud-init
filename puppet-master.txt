@@ -1,0 +1,16 @@
+#cloud-config
+
+packages:
+- ruby
+- ruby-dev
+- rubygems
+- puppetmaster-passenger
+- vim-puppet
+- puppet-el
+- git
+
+runcmd:
+- sed -i 's/127.0.0.1 localhost/127.0.0.1 localhost.localdomain localhost puppet/' /etc/hosts
+- sed -i 's/\[main\]/\[main\]\npluginsync=true\ncertname=puppet/' /etc/puppet/puppet.conf
+- /etc/init.d/apache2 restart
+
